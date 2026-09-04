@@ -11,30 +11,38 @@ export default function Navbar() {
   ]
 
   return (
-    <nav className="fixed top-0 w-full bg-primary/80 border-b border-dark-border z-50 backdrop-blur-md bg-primary/80">
-      <div className="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
-        {/* Logo */}
-        <a href="#" className="text-lg font-bold text-text-primary hover:text-accent transition">
-          The WeekEnd Company
+    <nav className="fixed top-0 w-full bg-primary/95 border-b border-dark-border/80 z-50 backdrop-blur-md">
+      <div className="max-w-7xl mx-auto px-6 py-4 sm:py-5 flex justify-between items-center">
+        {/* Official Brand Logo Anchor */}
+        <a 
+          href="#" 
+          aria-label="The WeekEnd Company Home" 
+          className="flex items-center group focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2 focus:ring-offset-primary rounded-lg"
+        >
+          <img
+            src="/logo.jpg"
+            alt="The WeekEnd Company Official Logo"
+            className="h-12 sm:h-16 md:h-20 w-auto object-contain rounded-xl border border-dark-border shadow-lg group-hover:border-accent/80 group-hover:scale-[1.02] transition duration-200"
+          />
         </a>
 
         {/* Desktop Navigation */}
-        <div className="hidden md:flex gap-8 items-center">
+        <div className="hidden md:flex gap-10 lg:gap-12 items-center">
           {navItems.map((item) => (
             <a
               key={item.label}
               href={item.href}
-              className="text-sm text-text-secondary hover:text-accent transition duration-200"
+              className="text-base lg:text-lg font-semibold text-text-primary hover:text-gold-bright transition duration-200"
             >
               {item.label}
             </a>
           ))}
         </div>
 
-        {/* Desktop CTA Button */}
+        {/* Desktop Primary CTA Button */}
         <a
           href="#contact"
-          className="hidden md:block px-6 py-2 bg-accent text-white rounded-lg text-sm font-medium hover:bg-blue-700 transition duration-200"
+          className="hidden md:block px-6 py-3 bg-accent text-primary rounded-xl text-base lg:text-lg font-bold hover:bg-gold-bright transition duration-200 shadow-lg shadow-accent/20 active:scale-95"
         >
           Let's work together
         </a>
@@ -42,7 +50,7 @@ export default function Navbar() {
         {/* Mobile Menu Button */}
         <button
           onClick={() => setIsOpen(!isOpen)}
-          className="md:hidden p-2 hover:bg-dark-card rounded-lg transition text-text-primary"
+          className="md:hidden p-2 hover:bg-dark-card rounded-lg transition text-text-primary focus:outline-none focus:ring-2 focus:ring-accent"
           aria-label="Toggle menu"
           aria-expanded={isOpen}
         >
@@ -59,13 +67,13 @@ export default function Navbar() {
 
       {/* Mobile Menu */}
       {isOpen && (
-        <div className="md:hidden border-t border-dark-border bg-primary">
-          <div className="px-6 py-4 space-y-4">
+        <div className="md:hidden border-t border-dark-border bg-primary/98 backdrop-blur-lg">
+          <div className="px-6 py-6 space-y-4">
             {navItems.map((item) => (
               <a
                 key={item.label}
                 href={item.href}
-                className="block text-text-secondary hover:text-accent transition"
+                className="block text-base font-medium text-text-primary hover:text-gold-bright transition"
                 onClick={() => setIsOpen(false)}
               >
                 {item.label}
@@ -73,7 +81,7 @@ export default function Navbar() {
             ))}
             <a
               href="#contact"
-              className="block px-4 py-2 bg-accent text-white rounded-lg text-sm font-medium text-center hover:bg-blue-700 transition"
+              className="block px-4 py-3 bg-accent text-primary rounded-lg text-sm font-bold text-center hover:bg-gold-bright transition shadow-md shadow-accent/15"
               onClick={() => setIsOpen(false)}
             >
               Let's work together

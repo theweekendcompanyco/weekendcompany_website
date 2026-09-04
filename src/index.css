@@ -8,12 +8,15 @@
   body {
     @apply font-sans text-text-primary bg-primary;
     min-height: 100vh;
+    background-color: #050505;
+  }
+
+  .hero-bg {
     background-image:
-      linear-gradient(rgba(10, 14, 39, 0.58), rgba(10, 14, 39, 0.68)),
+      linear-gradient(rgba(5, 5, 5, 0.88), rgba(5, 5, 5, 0.96)),
       url('../images/websiteBackground.jpg');
     background-size: cover;
     background-position: center;
-    background-attachment: fixed;
   }
 
   h1 {
@@ -31,9 +34,25 @@
   section {
     background-color: transparent;
   }
+
+  /* Custom dark gold scrollbar for modals and scroll containers */
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+  ::-webkit-scrollbar-track {
+    background: #050505;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #262626;
+    border-radius: 4px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #D4AF37;
+  }
 }
 
-/* Add restrained color depth over the shared background image. */
+/* Subtle warm background atmosphere */
 body::before {
   content: '';
   position: fixed;
@@ -42,9 +61,9 @@ body::before {
   width: 100%;
   height: 100%;
   background:
-    radial-gradient(circle at 20% 50%, rgba(59, 130, 246, 0.08) 0%, transparent 50%),
-    radial-gradient(circle at 80% 80%, rgba(59, 130, 246, 0.05) 0%, transparent 50%),
-    linear-gradient(135deg, rgba(10, 14, 39, 0.12) 0%, rgba(26, 31, 58, 0.08) 50%, rgba(15, 20, 35, 0.14) 100%);
+    radial-gradient(circle at 20% 40%, rgba(212, 175, 55, 0.03) 0%, transparent 50%),
+    radial-gradient(circle at 80% 75%, rgba(212, 175, 55, 0.02) 0%, transparent 50%),
+    linear-gradient(135deg, rgba(5, 5, 5, 0.2) 0%, rgba(11, 11, 11, 0.1) 50%, rgba(5, 5, 5, 0.2) 100%);
   pointer-events: none;
   z-index: -1;
 }
@@ -55,22 +74,22 @@ body::after {
   inset: 0;
   pointer-events: none;
   z-index: 20;
-  opacity: 0.65;
+  opacity: 0.35;
   background-image:
-    radial-gradient(circle, rgba(255, 255, 255, 0.95) 0 1px, transparent 1.5px),
-    radial-gradient(circle, rgba(147, 197, 253, 0.8) 0 1px, transparent 1.5px),
-    radial-gradient(circle, rgba(255, 255, 255, 0.65) 0 0.75px, transparent 1.25px);
+    radial-gradient(circle, rgba(245, 242, 234, 0.8) 0 1px, transparent 1.5px),
+    radial-gradient(circle, rgba(212, 175, 55, 0.6) 0 1px, transparent 1.5px),
+    radial-gradient(circle, rgba(245, 242, 234, 0.4) 0 0.75px, transparent 1.25px);
   background-position: 12px 28px, 86px 132px, 174px 64px;
   background-size: 180px 180px, 240px 240px, 310px 310px;
-  animation: starTwinkle 7s ease-in-out infinite alternate;
+  animation: starTwinkle 9s ease-in-out infinite alternate;
 }
 
 @keyframes starTwinkle {
   from {
-    opacity: 0.4;
+    opacity: 0.25;
   }
   to {
-    opacity: 0.78;
+    opacity: 0.45;
   }
 }
 
@@ -129,7 +148,7 @@ body::after {
   input:focus-visible,
   select:focus-visible,
   textarea:focus-visible {
-    outline: 2px solid #0066FF;
+    outline: 2px solid #D4AF37;
     outline-offset: 2px;
   }
 
@@ -138,8 +157,8 @@ body::after {
     position: absolute;
     top: -40px;
     left: 0;
-    background: #000;
-    color: white;
+    background: #050505;
+    color: #F5F2EA;
     padding: 8px;
     z-index: 100;
   }
