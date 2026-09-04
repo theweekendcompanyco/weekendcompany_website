@@ -18,8 +18,8 @@ export default function Button({
 
   const variants = {
     primary: 'bg-accent text-white hover:bg-blue-700 active:scale-95',
-    secondary: 'border-2 border-gray-300 text-gray-900 hover:border-accent hover:bg-gray-50 active:scale-95',
-    ghost: 'text-gray-700 hover:text-accent hover:bg-gray-100',
+    secondary: 'border-2 border-dark-border text-text-secondary hover:border-accent hover:bg-dark-card active:scale-95',
+    ghost: 'text-text-secondary hover:text-accent hover:bg-dark-card',
   }
 
   const sizes = {

@@ -1,16 +1,16 @@
 export default function Portfolio() {
   return (
-    <section id="portfolio" className="py-24 px-6 bg-white">
+    <section id="portfolio" className="py-24 px-6">
       <div className="max-w-6xl mx-auto">
         <div className="mb-16">
-          <h2 className="text-4xl sm:text-5xl font-bold mb-4">Recent work</h2>
-          <p className="text-xl text-text-muted">Projects and case studies.</p>
+          <h2 className="text-4xl sm:text-5xl font-bold mb-4 text-text-primary">Recent work</h2>
+          <p className="text-xl text-text-secondary">Projects and case studies.</p>
         </div>
 
         {/* Empty State */}
-        <div className="bg-gradient-to-br from-gray-50 to-gray-100 rounded-lg p-16 sm:p-24 text-center border-2 border-dashed border-gray-300">
+        <div className="bg-dark-card rounded-lg p-16 sm:p-24 text-center border-2 border-dashed border-dark-border">
           <div className="mb-6">
-            <div className="inline-flex items-center justify-center w-16 h-16 bg-accent/10 rounded-full mb-4">
+            <div className="inline-flex items-center justify-center w-16 h-16 bg-accent/20 rounded-full mb-4">
               <svg
                 className="w-8 h-8 text-accent"
                 fill="none"
@@ -27,15 +27,15 @@ export default function Portfolio() {
             </div>
           </div>
 
-          <h3 className="text-3xl sm:text-4xl font-bold mb-4 text-gray-900">
+          <h3 className="text-3xl sm:text-4xl font-bold mb-4 text-text-primary">
             The portfolio is still growing.
           </h3>
 
-          <p className="text-lg text-text-muted max-w-2xl mx-auto mb-8 leading-relaxed">
+          <p className="text-lg text-text-secondary max-w-2xl mx-auto mb-8 leading-relaxed">
             Every project has to start somewhere. Work will be added here as projects are completed and shared.
           </p>
 
-          <p className="text-sm text-gray-500">
+          <p className="text-sm text-text-muted">
             In the meantime, you can see my approach in the services above or get in touch to discuss your project.
           </p>
         </div>

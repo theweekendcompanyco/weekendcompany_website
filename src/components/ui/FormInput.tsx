@@ -16,12 +16,12 @@ export default function FormInput({
 
   return (
     <div className="w-full">
-      <label htmlFor={inputId} className="block text-sm font-medium mb-2 text-gray-300">
+      <label htmlFor={inputId} className="block text-sm font-medium mb-2 text-text-secondary">
         {label}
       </label>
       <input
         id={inputId}
-        className={`w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:border-accent focus:ring-2 focus:ring-accent/20 transition ${
+        className={`w-full px-4 py-3 bg-primary border border-dark-border rounded-lg text-text-primary placeholder-text-muted focus:outline-none focus:border-accent focus:ring-2 focus:ring-accent/20 transition ${
           error ? 'border-red-500' : ''
         } ${className}`}
         aria-invalid={!!error}
@@ -29,7 +29,7 @@ export default function FormInput({
         {...props}
       />
       {hint && (
-        <p id={`${inputId}-hint`} className="mt-1 text-xs text-gray-400">
+        <p id={`${inputId}-hint`} className="mt-1 text-xs text-text-muted">
           {hint}
         </p>
       )}

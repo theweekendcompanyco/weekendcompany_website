@@ -11,10 +11,10 @@ export default function Navbar() {
   ]
 
   return (
-    <nav className="fixed top-0 w-full bg-white border-b border-gray-200 z-50 backdrop-blur-sm bg-white/95">
+    <nav className="fixed top-0 w-full bg-primary/80 border-b border-dark-border z-50 backdrop-blur-md bg-primary/80">
       <div className="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
         {/* Logo */}
-        <a href="#" className="text-lg font-bold hover:text-accent transition">
+        <a href="#" className="text-lg font-bold text-text-primary hover:text-accent transition">
           The WeekEnd Company
         </a>
 
@@ -24,7 +24,7 @@ export default function Navbar() {
             <a
               key={item.label}
               href={item.href}
-              className="text-sm text-gray-700 hover:text-accent transition duration-200"
+              className="text-sm text-text-secondary hover:text-accent transition duration-200"
             >
               {item.label}
             </a>
@@ -42,7 +42,7 @@ export default function Navbar() {
         {/* Mobile Menu Button */}
         <button
           onClick={() => setIsOpen(!isOpen)}
-          className="md:hidden p-2 hover:bg-gray-100 rounded-lg transition"
+          className="md:hidden p-2 hover:bg-dark-card rounded-lg transition text-text-primary"
           aria-label="Toggle menu"
           aria-expanded={isOpen}
         >
@@ -59,13 +59,13 @@ export default function Navbar() {
 
       {/* Mobile Menu */}
       {isOpen && (
-        <div className="md:hidden border-t border-gray-200 bg-white">
+        <div className="md:hidden border-t border-dark-border bg-primary">
           <div className="px-6 py-4 space-y-4">
             {navItems.map((item) => (
               <a
                 key={item.label}
                 href={item.href}
-                className="block text-gray-700 hover:text-accent transition"
+                className="block text-text-secondary hover:text-accent transition"
                 onClick={() => setIsOpen(false)}
               >
                 {item.label}

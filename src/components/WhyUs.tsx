@@ -23,32 +23,32 @@ export default function WhyUs() {
   ]
 
   return (
-    <section className="py-24 px-6 bg-gradient-to-b from-white to-gray-50">
+    <section className="py-24 px-6">
       <div className="max-w-6xl mx-auto">
         <div className="mb-16">
-          <h2 className="text-4xl sm:text-5xl font-bold mb-4">Why work with me</h2>
-          <p className="text-xl text-text-muted">What makes The WeekEnd Company different.</p>
+          <h2 className="text-4xl sm:text-5xl font-bold mb-4 text-text-primary">Why work with me</h2>
+          <p className="text-xl text-text-secondary">What makes The WeekEnd Company different.</p>
         </div>
         
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12">
           {reasons.map((reason, idx) => (
             <div 
               key={idx}
-              className="flex gap-6 p-6 bg-white rounded-lg border border-gray-200 hover:border-accent hover:shadow-md transition duration-300"
+              className="flex gap-6 p-6 bg-dark-card rounded-lg border border-dark-border hover:border-accent hover:shadow-md hover:shadow-accent/10 transition duration-300"
             >
               {/* Number */}
               <div className="flex-shrink-0">
-                <div className="flex items-center justify-center w-12 h-12 rounded-full bg-blue-100 text-accent font-bold text-lg">
+                <div className="flex items-center justify-center w-12 h-12 rounded-full bg-accent/20 text-accent font-bold text-lg">
                   {reason.number}
                 </div>
               </div>
 
               {/* Content */}
               <div className="flex-1">
-                <h3 className="text-lg font-bold text-gray-900 mb-2">
+                <h3 className="text-lg font-bold text-text-primary mb-2">
                   {reason.title}
                 </h3>
-                <p className="text-text-muted leading-relaxed">
+                <p className="text-text-secondary leading-relaxed">
                   {reason.description}
                 </p>
               </div>
