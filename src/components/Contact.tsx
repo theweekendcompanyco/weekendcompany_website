@@ -184,7 +184,7 @@ export default function Contact() {
                       value={formData.budget}
                       onChange={handleChange}
                       className="w-full px-4 py-3 bg-primary border border-dark-border rounded-lg text-text-primary placeholder-text-muted focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent/50 transition text-sm"
-                      placeholder="e.g., $500-1000"
+                      placeholder="e.g., ₹5,000 - ₹25,000"
                     />
                   </div>
                 </div>
