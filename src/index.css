@@ -27,6 +27,7 @@
     scroll-behavior: smooth;
   }
 
+  /* Animations */
   .fade-in {
     animation: fadeIn 0.6s ease-in;
   }
@@ -55,6 +56,57 @@
     }
   }
 
+  .slide-down {
+    animation: slideDown 0.3s ease-out;
+  }
+
+  @keyframes slideDown {
+    from {
+      opacity: 0;
+      transform: translateY(-12px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  /* Focus States for Keyboard Navigation */
+  a:focus-visible,
+  button:focus-visible,
+  input:focus-visible,
+  select:focus-visible,
+  textarea:focus-visible {
+    outline: 2px solid #0066FF;
+    outline-offset: 2px;
+  }
+
+  /* Skip to Main Link (accessibility) */
+  .skip-to-main {
+    position: absolute;
+    top: -40px;
+    left: 0;
+    background: #000;
+    color: white;
+    padding: 8px;
+    z-index: 100;
+  }
+
+  .skip-to-main:focus {
+    top: 0;
+  }
+
+  /* Smooth transitions for interactive elements */
+  button,
+  a {
+    transition: all 0.2s ease;
+  }
+
+  /* Hover states for better UX */
+  button:hover {
+    transform: translateY(-2px);
+  }
+
   /* Respect prefers-reduced-motion */
   @media (prefers-reduced-motion: reduce) {
     *,
@@ -64,6 +116,10 @@
       animation-iteration-count: 1 !important;
       transition-duration: 0.01ms !important;
       scroll-behavior: auto !important;
+    }
+
+    button:hover {
+      transform: none;
     }
   }
 }
