@@ -2,30 +2,46 @@ import { SERVICES } from '../data/services'
 
 export default function Services() {
   return (
-    <section id="services" className="py-20 px-6">
+    <section id="services" className="py-24 px-6 bg-white">
       <div className="max-w-6xl mx-auto">
-        <h2 className="text-4xl font-bold mb-4">Services</h2>
-        <p className="text-lg text-text-muted mb-12">Four ways I can help.</p>
+        <div className="mb-16">
+          <h2 className="text-4xl sm:text-5xl font-bold mb-4">Services</h2>
+          <p className="text-xl text-text-muted">Four ways I can help.</p>
+        </div>
         
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          {SERVICES.map((service) => (
+          {SERVICES.map((service, idx) => (
             <div 
               key={service.id}
-              className="p-8 border-2 border-gray-200 rounded-lg hover:border-accent hover:shadow-lg transition duration-300"
+              className="group p-8 border-2 border-gray-200 rounded-lg hover:border-accent hover:shadow-lg transition duration-300 hover:-translate-y-1"
+              style={{
+                animationDelay: `${idx * 0.1}s`,
+              }}
             >
-              <div className="text-sm font-semibold text-accent uppercase tracking-wide mb-2">
+              {/* Category Badge */}
+              <div className="inline-block text-xs font-bold text-accent uppercase tracking-widest bg-blue-50 px-3 py-1 rounded-full mb-4">
                 {service.category}
               </div>
-              <h3 className="text-2xl font-bold mb-4">{service.title}</h3>
-              <p className="text-text-muted mb-6">{service.description}</p>
-              <ul className="space-y-2 text-sm text-text-muted">
+
+              {/* Title */}
+              <h3 className="text-2xl font-bold mb-3 group-hover:text-accent transition">
+                {service.title}
+              </h3>
+
+              {/* Description */}
+              <p className="text-text-muted mb-6 leading-relaxed">
+                {service.description}
+              </p>
+
+              {/* Examples */}
+              <div className="space-y-2 border-t border-gray-200 pt-6">
                 {service.examples.map((example, idx) => (
-                  <li key={idx} className="flex items-start">
-                    <span className="mr-3">•</span>
-                    {example}
-                  </li>
+                  <div key={idx} className="flex items-start gap-3">
+                    <span className="text-accent font-bold">→</span>
+                    <span className="text-text-muted">{example}</span>
+                  </div>
                 ))}
-              </ul>
+              </div>
             </div>
           ))}
         </div>

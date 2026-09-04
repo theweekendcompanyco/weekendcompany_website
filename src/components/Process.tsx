@@ -23,17 +23,38 @@ export default function Process() {
   ]
 
   return (
-    <section className="py-20 px-6 bg-gray-50">
+    <section className="py-24 px-6 bg-gradient-to-b from-white to-gray-50">
       <div className="max-w-6xl mx-auto">
-        <h2 className="text-4xl font-bold mb-4">How it works</h2>
-        <p className="text-lg text-text-muted mb-12">A simple four-step process.</p>
+        <div className="mb-16">
+          <h2 className="text-4xl sm:text-5xl font-bold mb-4">How it works</h2>
+          <p className="text-xl text-text-muted">A simple four-step process.</p>
+        </div>
         
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
-          {steps.map((step) => (
-            <div key={step.number} className="flex flex-col">
-              <div className="text-4xl font-bold text-accent mb-4">{step.number}</div>
-              <h3 className="text-xl font-bold mb-2">{step.title}</h3>
-              <p className="text-text-muted">{step.description}</p>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          {steps.map((step, idx) => (
+            <div 
+              key={step.number}
+              className="relative flex flex-col p-8 bg-white border border-gray-200 rounded-lg hover:border-accent hover:shadow-lg transition duration-300"
+            >
+              {/* Step Number */}
+              <div className="text-6xl font-black text-blue-100 mb-4 select-none">
+                {step.number}
+              </div>
+
+              {/* Step Title */}
+              <h3 className="text-xl font-bold mb-2 text-gray-900">
+                {step.title}
+              </h3>
+
+              {/* Step Description */}
+              <p className="text-text-muted leading-relaxed">
+                {step.description}
+              </p>
+
+              {/* Connector Line (hidden on mobile) */}
+              {idx < steps.length - 1 && (
+                <div className="hidden lg:block absolute top-1/2 -right-4 w-8 h-0.5 bg-gray-300 transform -translate-y-1/2"></div>
+              )}
             </div>
           ))}
         </div>
