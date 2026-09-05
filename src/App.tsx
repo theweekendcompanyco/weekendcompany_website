@@ -9,6 +9,7 @@ import Portfolio from './components/Portfolio'
 import WhyUs from './components/WhyUs'
 import Contact from './components/Contact'
 import Footer from './components/Footer'
+import CurtainRevealSection from './components/ui/CurtainRevealSection'
 
 export default function App() {
   useEffect(() => {
@@ -51,10 +52,12 @@ export default function App() {
       <Navbar />
       <main>
         <Hero />
-        <About />
-        <Services />
-        <Process />
+        <CurtainRevealSection>
+          <Services />
+        </CurtainRevealSection>
         <Portfolio />
+        <About />
+        <Process />
         <WhyUs />
         <Contact />
       </main>
