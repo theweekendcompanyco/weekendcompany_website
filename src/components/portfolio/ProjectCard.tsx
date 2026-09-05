@@ -1,5 +1,6 @@
 import { Project } from '../../types/project'
 import ProjectPreview from './ProjectPreview'
+import Tilt3DCard from '../ui/Tilt3DCard'
 
 interface ProjectCardProps {
   project: Project
@@ -30,14 +31,15 @@ export default function ProjectCard({ project, onSelectProject }: ProjectCardPro
   }
 
   return (
-    <article
-      tabIndex={0}
-      role="button"
-      aria-label={`View details for ${project.title}`}
-      onClick={() => onSelectProject(project)}
-      onKeyDown={handleKeyDown}
-      className="group bg-dark-card hover:bg-dark-card-hover border border-dark-border hover:border-accent/50 rounded-xl overflow-hidden flex flex-col justify-between cursor-pointer transition-all duration-300 transform hover:-translate-y-1 shadow-md hover:shadow-xl hover:shadow-accent/5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-primary"
-    >
+    <Tilt3DCard className="rounded-xl h-full">
+      <article
+        tabIndex={0}
+        role="button"
+        aria-label={`View details for ${project.title}`}
+        onClick={() => onSelectProject(project)}
+        onKeyDown={handleKeyDown}
+        className="group bg-dark-card hover:bg-dark-card-hover border border-dark-border hover:border-accent/50 rounded-xl overflow-hidden flex flex-col justify-between cursor-pointer transition-all duration-300 h-full shadow-md hover:shadow-xl hover:shadow-accent/5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-primary"
+      >
       {/* Top Visual Area */}
       <div className="w-full bg-primary p-3 pb-0 overflow-hidden relative border-b border-dark-border/60">
         <div className="transition-transform duration-300 group-hover:scale-[1.01]">
@@ -100,5 +102,6 @@ export default function ProjectCard({ project, onSelectProject }: ProjectCardPro
         </div>
       </div>
     </article>
+  </Tilt3DCard>
   )
 }

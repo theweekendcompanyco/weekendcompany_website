@@ -1,5 +1,6 @@
 import { useInView } from '../hooks/useInView'
 import { SERVICES } from '../data/services'
+import Tilt3DCard from './ui/Tilt3DCard'
 
 export default function Services() {
   const { ref, isVisible } = useInView()
@@ -93,14 +94,11 @@ export default function Services() {
         
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-stretch">
           {SERVICES.map((service, idx) => (
-            <div 
+            <Tilt3DCard
               key={service.id}
-              className={`group p-8 border border-dark-border bg-dark-card rounded-xl hover:border-accent/50 transition duration-300 hover:-translate-y-1 flex flex-col justify-between shadow-md hover:shadow-xl hover:shadow-accent/5 ${
+              className={`group p-8 border border-dark-border bg-dark-card rounded-xl hover:border-accent/50 transition duration-300 flex flex-col justify-between shadow-md hover:shadow-xl hover:shadow-accent/5 ${
                 isVisible ? 'slide-up' : 'opacity-0'
               }`}
-              style={{
-                animationDelay: isVisible ? `${idx * 0.1}s` : '0s',
-              }}
             >
               <div>
                 {/* Visual Accent */}
@@ -131,7 +129,7 @@ export default function Services() {
                   </div>
                 ))}
               </div>
-            </div>
+            </Tilt3DCard>
           ))}
         </div>
       </div>
