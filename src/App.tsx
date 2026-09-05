@@ -1,4 +1,4 @@
-import { useEffect } from 'react'
+import { useState, useEffect } from 'react'
 import SEO from './components/SEO'
 import Navbar from './components/Navbar'
 import Hero from './components/Hero'
@@ -9,9 +9,11 @@ import Portfolio from './components/Portfolio'
 import WhyUs from './components/WhyUs'
 import Contact from './components/Contact'
 import Footer from './components/Footer'
-import CurtainRevealSection from './components/ui/CurtainRevealSection'
+import OpeningCeremonyStage from './components/ui/OpeningCeremonyStage'
 
 export default function App() {
+  const [hasEntered, setHasEntered] = useState(false)
+
   useEffect(() => {
     // Add JSON-LD structured data for organization
     const structuredData = {
@@ -44,23 +46,31 @@ export default function App() {
   }, [])
 
   return (
-    <div className="scroll-smooth">
+    <div className="scroll-smooth min-h-screen bg-primary">
       <SEO
         title="The WeekEnd Company — Digital Work, Built After Hours"
         description="Digital work for small businesses and individuals. Websites, data cleanup, design, and practical digital tasks. Built after hours."
       />
-      <Navbar />
-      <main>
+
+      {/* 1. First Viewport Theatre Stage Entrance */}
+      {!hasEntered && (
+        <OpeningCeremonyStage onOpeningComplete={() => setHasEntered(true)} />
+      )}
+
+      {/* 2. Main Site Navigation */}
+      <Navbar isVisible={hasEntered} />
+
+      {/* 3. Un-trapped Website Layout */}
+      <main className={`transition-opacity duration-700 ${hasEntered ? 'opacity-100' : 'opacity-0'}`}>
         <Hero />
-        <CurtainRevealSection>
-          <Services />
-        </CurtainRevealSection>
+        <Services />
         <Portfolio />
         <About />
         <Process />
         <WhyUs />
         <Contact />
       </main>
+
       <Footer />
     </div>
   )

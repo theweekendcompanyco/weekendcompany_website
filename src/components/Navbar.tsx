@@ -1,6 +1,10 @@
 import { useState } from 'react'
 
-export default function Navbar() {
+interface NavbarProps {
+  isVisible?: boolean
+}
+
+export default function Navbar({ isVisible = true }: NavbarProps) {
   const [isOpen, setIsOpen] = useState(false)
 
   const navItems = [
@@ -11,7 +15,11 @@ export default function Navbar() {
   ]
 
   return (
-    <nav className="fixed top-0 w-full bg-primary/95 border-b border-dark-border/80 z-50 backdrop-blur-md">
+    <nav
+      className={`fixed top-0 w-full bg-primary/95 border-b border-dark-border/80 z-50 backdrop-blur-md transition-all duration-700 ease-out ${
+        isVisible ? 'opacity-100 translate-y-0 pointer-events-auto' : 'opacity-0 -translate-y-6 pointer-events-none'
+      }`}
+    >
       <div className="max-w-7xl mx-auto px-6 py-4 sm:py-5 flex justify-between items-center">
         {/* Official Brand Logo Anchor */}
         <a 
